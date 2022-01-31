@@ -1,0 +1,97 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="./home.css" />
+		<title>مخاطبین شما</title>
+	</head>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			overflow-y: hidden;
+		}
+		.container {
+			height: 100vh;
+			width: 100%;
+			background-color: #0f172a;
+			color: white;
+		}
+		.contacts {
+			margin: 0 auto;
+			height: 100%;
+			max-width: 24rem;
+			padding-top: 6rem;
+		}
+
+		.contacts-header {
+			text-align: center;
+		}
+
+		.contacts-header h1 {
+			font-weight: 800;
+			font-size: 3rem;
+		}
+		.contacts-header h2 {
+			font-weight: 600;
+			font-size: 2rem;
+		}
+		.contacts-body {
+			margin-top: 4rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.contacts-body button {
+			font-weight: bold;
+			border-radius: 15px;
+			padding: 1rem 3rem;
+			background: rgb(2, 0, 36);
+			background: linear-gradient(
+				132deg,
+				rgba(2, 0, 36, 1) 0%,
+				rgba(57, 187, 155, 1) 35%,
+				rgba(0, 212, 255, 1) 100%
+			);
+		}
+
+		.contacts-body a {
+			color: white;
+			font-weight: bolder;
+			text-decoration: none;
+            margin-left: 1rem;
+		}
+
+        .contacts-body-a {
+            margin-top: 1rem;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+	</style>
+	<body>
+		<div class="container">
+			<div class="contacts">
+				<div class="contacts-header">
+					<h1>مخاطبین</h1>
+					<h2>لیست مخاطبین شما</h2>
+				</div>
+
+				<div class="contacts-body">
+					{% for user in all_users %} {% if user != this_user%}
+					
+                        <a href="{{user}}" class="contacts-body-a">
+                            <img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-user-back-to-school-kmg-design-flat-kmg-design.png"/>
+							{{user}}
+						</button>
+					
+					{% endif %} {% endfor %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

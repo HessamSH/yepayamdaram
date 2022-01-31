@@ -1,0 +1,20 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Contacts</title>
+</head>
+<body>
+
+    {% for user in all_users %}
+        {% if user != this_user%}
+            <p>{{online_bool}}</p>
+            <a href={{user}}>{{user}}</a>
+        
+        {% endif %}
+    {% endfor %}
+    
+
+</body>
+</html>
